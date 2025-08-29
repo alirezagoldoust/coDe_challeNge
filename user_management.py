@@ -20,3 +20,4 @@ class Seller(User) :
     def __init__(self, username):
         super().__init__(username, "Seller")
         self.product_list = []
+        
