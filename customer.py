@@ -11,7 +11,7 @@ class Customer:
         Order.id += 1
 
     def get_products(Product):
-        return Product.product_list
+        return Product.get_products()
 
 
     def select_product(self):
