@@ -16,9 +16,9 @@ This project demonstrates how an online shopping platform works.
 - 💾 **Persistent storage** using files (JSON / Pickle)  
 
 ## 🏗️ OOP Classes
-- **Customer** → ID, cost, orders  
-- **Seller** → Manage products & inventory  
-- **Product** → Name, price, stock  
-- **HotOfferProduct** → Discount, expiry date, max_order_stock
-- **Order** → Customer purchases & records  
+- **Customer** → ID, username, orders
+- **Seller** → ID, username, products
+- **Product** → name, price, stock, product_type(stocked, weighted)
+- **HotOfferProduct** → discount, expiry date, max_order_stock
+- **Order** → customer, product, unit_price, quantity, total_price
 
