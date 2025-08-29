@@ -13,13 +13,13 @@ class Product_management :
         return self.products_list
     
 
-class Product : 
-    number_of_products = 0
+class Product :
 
     def __init__(self , name , price , stock, seller_username):
         self.name = name
         self.price = price
         self.stock = stock
         self.seller_username = seller_username
-        self.id = Product.number_of_products
-        Product.number_of_products += 1
+
+    def __str__(self):
+        return f'{self.name} {self.price} {self.stock} {self.seller_username}'
