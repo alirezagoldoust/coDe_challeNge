@@ -2,6 +2,7 @@ from product_management import Product_management
 from unittest import case
 import pickle
 from user_management import User_management
+from customer import Customer
 
 
 def seller_menu(user_manager: User_management):
@@ -34,27 +35,38 @@ def seller_menu(user_manager: User_management):
 
 
 def customer_menu(user_manager: User_management):
-
+    user_name = user_manager.current_user.username
+    customer_list = user_manager.customers_list
     product_manager = Product_management()
 
-    print("1. Add Product")
+    customer = next((c for c in customer_list if c.username == user_name), None)
+
+    print("1. Add Product to my basket")
     print("2. Show All Products")
-    print("3. Exit")
+    print("3. Place Order")
+    print("4. Exit")
 
     user_input = input("Enter your choice: ")
 
     match user_input :
         case "1" :
-            product_name = input()
+            product_name = input("Enter product name: ")
+            product_count = int(input("Enter product count: "))
             products = product_manager.get_product_list()
             for product in products :
                 if product.name == product_name :
-                    
+                    customer.add_to_basket(product, product_count)
+
         case "2" :
+
             products = product_manager.get_product_list()
             for product in products :
                 print(product)
+
         case "3" :
+            customer.basket.clear()
+
+        case "4":
             exit()
     
 

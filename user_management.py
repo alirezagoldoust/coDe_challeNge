@@ -1,3 +1,4 @@
+from coDe_challeNge.customer import Customer
 from file_management import Saver, Loader
 
 
@@ -6,18 +7,25 @@ class User_management:
     def __init__(self):
 
         self.users_list = Loader.load_users()
+        self.customers_list = Loader.load_customers()
         self.current_user = None
     
     def add_user(self, user):
 
         self.users_list.append(user)
         Saver.save_users(self.users_list)
+        self.add_customer(user.username)
+
+    def add_customer(self, user_name):
+        new_customer = Customer(user_name)
+        self.customers_list.append(new_customer)
+        Saver.save_customers(self.customers_list)
+
 
     def login_user(self , username) :
 
         for user in self.users_list :
             if user.get_username() == username:
-
                 self.current_user = user
                 return user
         return None
