@@ -1,8 +1,8 @@
 from product_management import Product_management
 from unittest import case
-from sympy.strategies.core import switch
 import pickle
 from user_management import User_management
+
 
 def seller_menu(user_manager: User_management):
     product_manager = Product_management()
@@ -33,8 +33,30 @@ def seller_menu(user_manager: User_management):
             exit()
 
 
-def customers_menu():
-    pass
+def customer_menu(user_manager: User_management):
+
+    product_manager = Product_management()
+
+    print("1. Add Product")
+    print("2. Show All Products")
+    print("3. Exit")
+
+    user_input = input("Enter your choice: ")
+
+    match user_input :
+        case "1" :
+            product_name = input()
+            products = product_manager.get_product_list()
+            for product in products :
+                if product.name == product_name :
+                    
+        case "2" :
+            products = product_manager.get_product_list()
+            for product in products :
+                print(product)
+        case "3" :
+            exit()
+    
 
 def main():
     user_manager = User_management()
@@ -56,8 +78,7 @@ def main():
            role = "Customer"
 
        user_manager.sing_up_user(input_username, role)
-       # if input_username.lower() == 'exit':
-       #     return
+
        user_manager.login_user(username=input_username)
 
     print(f"\nWelcome, {user_manager.current_user.get_username()}!")
@@ -66,8 +87,8 @@ def main():
 
     if user_role == "Seller":
         seller_menu(user_manager)
-    elif user_role == "Buyer":
-        customers_menu(user_manager)
+    elif user_role == "Customer":
+        customer_menu(user_manager)
 
 
 if __name__ == "__main__":

@@ -1,7 +1,9 @@
 import os
 import pickle
 
+
 class Saver:
+
     def __init__(self, product, user, order):
         self.product = product
         self.user = user
@@ -28,6 +30,7 @@ class Saver:
         cls.save('orders.pkl', orders_list)
 
 class Loader:
+
     def __init__(self, product, user, order):
         self.product = product
         self.user = user
@@ -59,6 +62,7 @@ class Loader:
                 
 if __name__ == "__main__":
     class MyClass:
+
         def __init__(self, value):
             self.value = value
         def print_value(self):

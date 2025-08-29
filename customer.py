@@ -5,6 +5,7 @@ from product_management import Product_management
 
 class Customer:
     id = 0
+
     def __init__(self, username, orders, basket):
         self.__id = Customer.id
         self.name = username
@@ -28,9 +29,11 @@ class Customer:
         return count
 
     def add_to_basket(self):
+
         product = self.select_product()
         count = self.get_quantity()
         new_order_item = Order_Item(product, count)
+        
         if count < product.stock:
             self.basket.append(new_order_item)
         elif count > 10:
