@@ -5,6 +5,9 @@ class Product_management :
     def add_products(self , name , price , stock, seller_username):
         new_product = Product(name , price , stock, seller_username)
         self.products_list.append(new_product)
+    
+    def get_product_list(self) :
+        return self.products_list
 
 
 
