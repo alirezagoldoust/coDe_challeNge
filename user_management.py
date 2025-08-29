@@ -1,4 +1,5 @@
 from file_management import Saver, Loader
+
 class User_management:
     def __init__(self):
         self.users_list = Loader.load_users()
@@ -14,7 +15,10 @@ class User_management:
                 self.current_user = user
                 return user
         return None
-        
+
+    def sing_up_user(self, username, role) :
+        new_user = User(username, role)
+        self.add_user(new_user)
 
 class User:
     def __init__(self , username , role : None) :
