@@ -1,8 +1,5 @@
 from product_management import Product_management
-from unittest import case
-import pickle
 from user_management import User_management
-from customer import Customer
 
 
 def seller_menu(user_manager: User_management):
@@ -108,14 +105,4 @@ def main():
 
 
 if __name__ == "__main__":
-    # with open("products.pkl", "rb") as f:
-    #     data = pickle.load(f)
-    #
-    # print(data)
-    #
-    # with open("users.pkl", "rb") as f:
-    #     data = pickle.load(f)
-    #
-    # print(data)
-
     main()

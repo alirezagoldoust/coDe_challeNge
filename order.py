@@ -1,5 +1,4 @@
 class Order:
-
     id = 0
 
     def __init__(self, customer_id, basket, total_price = 0):

@@ -1,4 +1,4 @@
-from coDe_challeNge.customer import Customer
+from customer import Customer
 from file_management import Saver, Loader
 
 
