@@ -2,11 +2,19 @@ from file_management import Saver, Loader
 class User_mangemente:
     def __init__(self):
         self.users_list = Loader.load_users()
+        self.current_user = None
     
     def add_user(self, user):
         self.users_list.append(user)
         Saver.save_users(self.users_list)
 
+    def login_user(self , username) :
+        for user in self.users_list :
+            if user.get_username() == username:
+                self.current_user = user
+                return user
+        return None
+        
 
 class User:
     def __init__(self , username , role : None) :
@@ -15,6 +23,9 @@ class User:
 
     def get_role(self) :
         return self.role
+    
+    def get_username(self) :
+        return self.username
     
 
 class Buyer(User):
