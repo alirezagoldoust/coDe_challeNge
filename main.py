@@ -1,7 +1,5 @@
 from user_management import User_management
 
-
-
 def main():
     user_manager = User_management()
     print("Wellcome to digikala")
@@ -22,7 +20,7 @@ def main():
 
     print(f"\nWelcome, {user_manager.current_user.get_username()}!")
 
-
+    user_role = user_manager.current_user.get_role()
 
     if user_role == "Seller":
         print("test1")

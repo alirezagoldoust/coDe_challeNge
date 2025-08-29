@@ -73,4 +73,3 @@ if __name__ == "__main__":
         
     objs = Loader.load_products()
     print(objs)
-    
