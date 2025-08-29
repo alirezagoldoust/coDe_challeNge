@@ -25,11 +25,13 @@ def seller_menu(user_manager: User_management):
 
             product_manager.add_products(product_name , product_price, product_stock,
                                          user_manager.current_user.username)
+            
         case "2" :
             products = product_manager.get_product_list()
             for product in products :
                 if product.seller_username == user_manager.current_user.username :
                     print(product)
+                    
         case "3" :
             exit()
 
@@ -49,16 +51,17 @@ def customer_menu(user_manager: User_management):
     user_input = input("Enter your choice: ")
 
     match user_input :
+
         case "1" :
             product_name = input("Enter product name: ")
             product_count = int(input("Enter product count: "))
             products = product_manager.get_product_list()
+            
             for product in products :
                 if product.name == product_name :
                     customer.add_to_basket(product, product_count)
 
         case "2" :
-
             products = product_manager.get_product_list()
             for product in products :
                 print(product)
@@ -99,6 +102,7 @@ def main():
 
     if user_role == "Seller":
         seller_menu(user_manager)
+
     elif user_role == "Customer":
         customer_menu(user_manager)
 
