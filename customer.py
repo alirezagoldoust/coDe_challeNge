@@ -30,5 +30,7 @@ class Customer:
         new_order_item = Order_Item(product, count)
         if count < product.stock:
             self.basket.append(new_order_item)
+        elif count > 10:
+            print("Sorry, you can't buy more than 10 products.")
         else:
             print("unavailable!")
