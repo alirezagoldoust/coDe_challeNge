@@ -1,5 +1,7 @@
 from order import Order
 from order_item import Order_Item
+from product_management import Product_management
+
 
 class Customer:
     id = 0
@@ -10,8 +12,9 @@ class Customer:
         self.basket = basket
         Order.id += 1
 
-    def get_products(Product):
-        return Product.get_products()
+    @staticmethod
+    def get_products():
+        return Product_management.get_product_list()
 
 
     def select_product(self):

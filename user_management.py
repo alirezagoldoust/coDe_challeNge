@@ -1,5 +1,5 @@
 from file_management import Saver, Loader
-class User_mangemente:
+class User_management:
     def __init__(self):
         self.users_list = Loader.load_users()
         self.current_user = None

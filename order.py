@@ -10,4 +10,4 @@ class Order:
 
     def set_total_price(self, basket):
         for order_item in basket:
-            self.total_price += (order_item.price * order_item.quantity)
+            self.total_price += (order_item.product.price * order_item.quantity)
