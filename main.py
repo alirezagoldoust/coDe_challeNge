@@ -4,8 +4,8 @@ from user_management import User_management
 
 def seller_menu(user_manager: User_management):
     product_manager = Product_management()
-    while True:
 
+    while True:
         print("1. Add Product")
         print("2. Show My Products")
         print("3. Exit")

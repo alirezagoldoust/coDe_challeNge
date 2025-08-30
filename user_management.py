@@ -5,13 +5,11 @@ from file_management import Saver, Loader
 class User_management:
 
     def __init__(self):
-
         self.users_list = Loader.load_users()
         self.customers_list = Loader.load_customers()
         self.current_user = None
     
     def add_user(self, user):
-
         self.users_list.append(user)
         Saver.save_users(self.users_list)
         self.add_customer(user.username)
@@ -31,7 +29,6 @@ class User_management:
         return None
 
     def sing_up_user(self, username, role) :
-
         new_user = User(username, role)
         self.add_user(new_user)
 

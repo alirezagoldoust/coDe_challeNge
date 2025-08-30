@@ -6,7 +6,6 @@ class Product_management :
         self.products_list = Loader.load_products()
 
     def add_products(self , name , price , stock, seller_username):
-
         new_product = Product(name , price , stock, seller_username)
         self.products_list.append(new_product)
         Saver.save_products(self.products_list)
