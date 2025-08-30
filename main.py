@@ -4,33 +4,36 @@ from user_management import User_management
 
 def seller_menu(user_manager: User_management):
     product_manager = Product_management()
+    while True:
 
-    print("1. Add Product")
-    print("2. Show My Products")
-    print("3. Exit")
+        print("1. Add Product")
+        print("2. Show My Products")
+        print("3. Exit")
+        print()
 
-    user_input = input("Enter your choice: ")
+        user_input = input("Enter your choice: ")
 
-    match user_input :
-        case "1" :
-            print("enter product name: ")
-            product_name = input()
-            print("enter product price: ")
-            product_price = input()
-            print("enter product stock: ")
-            product_stock = input()
+        match user_input :
+            case "1" :
+                print("enter product name: ")
+                product_name = input()
+                print("enter product price: ")
+                product_price = input()
+                print("enter product stock: ")
+                product_stock = input()
 
-            product_manager.add_products(product_name , product_price, product_stock,
-                                         user_manager.current_user.username)
-            
-        case "2" :
-            products = product_manager.get_product_list()
-            for product in products :
-                if product.seller_username == user_manager.current_user.username :
-                    print(product)
-                    
-        case "3" :
-            exit()
+                product_manager.add_products(product_name , product_price, product_stock,
+                                             user_manager.current_user.username)
+
+            case "2" :
+                products = product_manager.get_product_list()
+                for product in products :
+                    if product.seller_username == user_manager.current_user.username :
+                        print(product)
+                print()
+
+            case "3" :
+                exit()
 
 
 def customer_menu(user_manager: User_management):
@@ -40,34 +43,37 @@ def customer_menu(user_manager: User_management):
 
     customer = next((c for c in customer_list if c.username == user_name), None)
 
-    print("1. Add Product to my basket")
-    print("2. Show All Products")
-    print("3. Place Order")
-    print("4. Exit")
+    while True:
+        print("1. Add Product to my basket")
+        print("2. Show All Products")
+        print("3. Place Order")
+        print("4. Exit")
+        print()
 
-    user_input = input("Enter your choice: ")
+        user_input = input("Enter your choice: ")
 
-    match user_input :
+        match user_input :
 
-        case "1" :
-            product_name = input("Enter product name: ")
-            product_count = int(input("Enter product count: "))
-            products = product_manager.get_product_list()
-            
-            for product in products :
-                if product.name == product_name :
-                    customer.add_to_basket(product, product_count)
+            case "1" :
+                product_name = input("Enter product name: ")
+                product_count = int(input("Enter product count: "))
+                products = product_manager.get_product_list()
 
-        case "2" :
-            products = product_manager.get_product_list()
-            for product in products :
-                print(product)
+                for product in products :
+                    if product.name == product_name :
+                        customer.add_to_basket(product, product_count)
 
-        case "3" :
-            customer.basket.clear()
+            case "2" :
+                products = product_manager.get_product_list()
+                for product in products :
+                    print(product)
+                print()
 
-        case "4":
-            exit()
+            case "3" :
+                customer.basket.clear()
+
+            case "4":
+                exit()
     
 
 def main():
